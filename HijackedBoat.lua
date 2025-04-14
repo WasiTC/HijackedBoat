@@ -45,7 +45,7 @@ local ParasiteTab = MainWindow:CreateTab("🦠 Parasite", nil) -- Title, Image
 local ParasiteSection = ParasiteTab:CreateSection("Parasite Controls")
 
 local RemoveLagInput = ParasiteTab:CreateInput({
-   Name = "[Anti-Weapon Lag]Enter the name of the person lagging the server",
+   Name = "[Anti-Weapon Lag] Enter the name of the person lagging the server",
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
@@ -53,103 +53,33 @@ local RemoveLagInput = ParasiteTab:CreateInput({
    Callback = function(Text)
    while true do
     local targetplr = Text
-local baseName = "SpikeTrap"
-
-local blocksFolder = workspace:WaitForChild("Blocks")
-local playerFolder = blocksFolder:WaitForChild(targetplr)
-
--- First: Rename duplicates to ensure unique names
-local nameTracker = {}
-for _, item in ipairs(playerFolder:GetChildren()) do
-    if item.Name == baseName then
-        local count = nameTracker[baseName] or 1
-        item.Name = baseName .. tostring(count)
-        nameTracker[baseName] = count + 1
+    local baseNames = {"SpikeTrap", "SticksOfTNT", "Cannon", "MiniGun"}
+    
+    local blocksFolder = workspace:WaitForChild("Blocks")
+    local playerFolder = blocksFolder:WaitForChild(targetplr)
+    
+    -- First: Rename duplicates to ensure unique names
+    local nameTracker = {}
+    for _, item in ipairs(playerFolder:GetChildren()) do
+        for _, baseName in ipairs(baseNames) do
+            if item.Name == baseName then
+                local count = nameTracker[baseName] or 1
+                item.Name = baseName .. tostring(count)
+                nameTracker[baseName] = count + 1
+            end
+        end
     end
-end
-
--- Second: Destroy ALL spike traps (original + renamed)
-for _, item in ipairs(playerFolder:GetChildren()) do
-    if item.Name:match("^" .. baseName .. "%d*$") then
-        item:Destroy()
+    
+    -- Second: Destroy ALL items (original + renamed)
+    for _, item in ipairs(playerFolder:GetChildren()) do
+        for _, baseName in ipairs(baseNames) do
+            if item.Name:match("^" .. baseName .. "%d*$") then
+                item:Destroy()
+                break -- Stop checking other names once destroyed
+            end
+        end
     end
-end
-task.wait(0.1)
-end
-   while true do
-    local targetplr = Text
-local baseName = "MiniGun"
-
-local blocksFolder = workspace:WaitForChild("Blocks")
-local playerFolder = blocksFolder:WaitForChild(targetplr)
-
--- First: Rename duplicates to ensure unique names
-local nameTracker = {}
-for _, item in ipairs(playerFolder:GetChildren()) do
-    if item.Name == baseName then
-        local count = nameTracker[baseName] or 1
-        item.Name = baseName .. tostring(count)
-        nameTracker[baseName] = count + 1
-    end
-end
-
--- Second: Destroy ALL spike traps (original + renamed)
-for _, item in ipairs(playerFolder:GetChildren()) do
-    if item.Name:match("^" .. baseName .. "%d*$") then
-        item:Destroy()
-    end
-end
-task.wait(0.1)
-end
-   while true do
-    local targetplr = Text
-local baseName = "Cannon"
-
-local blocksFolder = workspace:WaitForChild("Blocks")
-local playerFolder = blocksFolder:WaitForChild(targetplr)
-
--- First: Rename duplicates to ensure unique names
-local nameTracker = {}
-for _, item in ipairs(playerFolder:GetChildren()) do
-    if item.Name == baseName then
-        local count = nameTracker[baseName] or 1
-        item.Name = baseName .. tostring(count)
-        nameTracker[baseName] = count + 1
-    end
-end
-
--- Second: Destroy ALL spike traps (original + renamed)
-for _, item in ipairs(playerFolder:GetChildren()) do
-    if item.Name:match("^" .. baseName .. "%d*$") then
-        item:Destroy()
-    end
-end
-task.wait(0.1)
-end
-   while true do
-    local targetplr = Text
-local baseName = "SticksOfTNT"
-
-local blocksFolder = workspace:WaitForChild("Blocks")
-local playerFolder = blocksFolder:WaitForChild(targetplr)
-
--- First: Rename duplicates to ensure unique names
-local nameTracker = {}
-for _, item in ipairs(playerFolder:GetChildren()) do
-    if item.Name == baseName then
-        local count = nameTracker[baseName] or 1
-        item.Name = baseName .. tostring(count)
-        nameTracker[baseName] = count + 1
-    end
-end
-
--- Second: Destroy ALL spike traps (original + renamed)
-for _, item in ipairs(playerFolder:GetChildren()) do
-    if item.Name:match("^" .. baseName .. "%d*$") then
-        item:Destroy()
-    end
-end
-task.wait(0.1)
+    task.wait(0.01)
 end
    end,
 })
