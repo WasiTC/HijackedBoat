@@ -1,5 +1,5 @@
-local budget = 5000
-local totalcost = 1275
+local budget = "5000"
+local totalcost = "1275"
 if budget < totalcost then return end
 
 local qty = math.floor(budget / totalcost)
