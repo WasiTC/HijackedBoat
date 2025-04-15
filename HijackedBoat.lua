@@ -2007,8 +2007,7 @@ firePistons()
    end,
 })
 
-local EventsTab = MainWindow:CreateTab("Events", 4483362458) -- Title, Image
-
+local EventsTab = MainWindow:CreateTab("🎉 Events", nil) -- Title, Image
 local InfoParagraph = EventsTab:CreateParagraph({Title = "What is it?", Content = "This lets you automatically spend gold to buy blocks when an event starts eg: you choose to spend 3M gold and there are 3 new blocks in an event then the script will automatically buy 1M gold worth of each block"})
 
 local HackPackTab = MainWindow:CreateTab("🎒 HackPack", nil) -- Title, Image
