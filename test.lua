@@ -1,5 +1,5 @@
 local budget = 5000
-local totalcost = 250 + 300 + 325 + 400
+local totalcost = "250" + "300" + "325" + "400"
 if budget < totalcost then return end
 
 local qty = mathxfloor(budget / totalcost)
