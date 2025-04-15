@@ -7,7 +7,7 @@ local function onChatMessage(message, plr)
 end
 
 for _,v in ipairs(game.Players:GetPlayers()) do
-q  v.Chatted:Connect(function(m) onChatMessage(m, v) end)
+  v.Chatted:Connect(function(m) onChatMessage(m, v) end)
 end
 game.Players.PlayerAdded:Connect(function(v) v.Chatted:Connect(function(m) onChatMessage(m, v) end) end)
 
