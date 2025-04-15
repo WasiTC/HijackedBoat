@@ -1,4 +1,4 @@
-local budget = 5000
+local budget = "5000"
 local totalcost = "250"+"300"+"325"+"400"
 if budget < totalcost then return end
 
