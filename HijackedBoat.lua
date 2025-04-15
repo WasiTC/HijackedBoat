@@ -11,9 +11,9 @@ local MainWindow = Rayfield:CreateWindow({
    DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
 
    ConfigurationSaving = {
-      Enabled = false,
-      FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Big Hub"
+      Enabled = true,
+      FolderName = HijackedBoat, -- Create a custom folder for your hub/game
+      FileName = "PlrData"
    },
 
    Discord = {
@@ -38,7 +38,7 @@ Rayfield:Notify({
    Title = "Execution Status",
    Content = "Execution successful!",
    Duration = 6.5,
-   Image = "rewind",
+   Image = "check",
 })
 
 local ParasiteTab = MainWindow:CreateTab("🦠 Parasite", nil) -- Title, Image
@@ -49,7 +49,7 @@ local RemoveLagInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input0",
+   Flag = nil,
    Callback = function(Text)
    while true do
     local targetplr = Text
@@ -89,12 +89,13 @@ local CannonsInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input1",
+   Flag = nil,
    Callback = function(Text)
    local targetplr = Text
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
                 then kicktarget:Kick("Unable to bypass connection firewall")
+                local Text = "Username"
             end
 local baseName = "Cannon"
 
@@ -158,7 +159,7 @@ local RedJetInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input2",
+   Flag = nil,
    Callback = function(Text)
    local targetplr = Text
 local kicktarget = game.Players.LocalPlayer
@@ -227,7 +228,7 @@ local PurpleJetInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input3",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -296,7 +297,7 @@ local SnowJetInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input4",
+   Flag = nil,
    Callback = function(Text)
    local targetplr = Text
 local kicktarget = game.Players.LocalPlayer
@@ -365,7 +366,7 @@ local RedThrusterInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input5",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -434,7 +435,7 @@ local ThrusterInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input6",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -503,7 +504,7 @@ local MegaThrusterInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input7",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -572,7 +573,7 @@ local SnowThrusterInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input8",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -641,7 +642,7 @@ local HalloweenThrusterInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input9",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -710,7 +711,7 @@ local GoldHarpoonInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input10",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -779,7 +780,7 @@ local BlueHarpoonInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input11",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -848,7 +849,7 @@ local DragonHarpoonInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input12",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -917,7 +918,7 @@ local CandyCaneHarpoonInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input13",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -986,7 +987,7 @@ local RegularFireworkInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input14",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -1055,7 +1056,7 @@ local FireworkAInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input15",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -1124,7 +1125,7 @@ local FireworkBInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input16",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -1193,7 +1194,7 @@ local FireworkCInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input17",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -1262,7 +1263,7 @@ local FireworkDInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input18",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -1331,7 +1332,7 @@ local BalloonInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input19",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -1400,7 +1401,7 @@ local StarBalloonInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input20",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -1469,7 +1470,7 @@ local ParachuteInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input21",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -1538,7 +1539,7 @@ local ShieldInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input22",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -1607,7 +1608,7 @@ local MinigunInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input23",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -1676,7 +1677,7 @@ local GlueInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input24",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -1745,7 +1746,7 @@ local TnTInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input25",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -1814,7 +1815,7 @@ local MagnetInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input26",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -1883,7 +1884,7 @@ local RetractPistonInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input27",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -1947,7 +1948,7 @@ local ExtendPistonInput = ParasiteTab:CreateInput({
    CurrentValue = "",
    PlaceholderText = "Username",
    RemoveTextAfterFocusLost = false,
-   Flag = "Input28",
+   Flag = nil,
    Callback = function(Text)
 local kicktarget = game.Players.LocalPlayer
 if Text == "GuestNoob101013"
@@ -2005,6 +2006,10 @@ end
 firePistons()
    end,
 })
+
+local EventStockUpTab = MainWindow:CreateTab("Events", 4483362458) -- Title, Image
+
+local InfoParagraph = EventStockUpTab:CreateParagraph({Title = "What is it?", Content = "This lets you automatically spend gold to buy blocks when an event starts eg: you choose to spend 3M gold and there are 3 new blocks in an event then the script will automatically buy 1M gold worth of each block"})
 
 local HackPackTab = MainWindow:CreateTab("🎒 HackPack", nil) -- Title, Image
 
