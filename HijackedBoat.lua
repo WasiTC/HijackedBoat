@@ -1,5 +1,4 @@
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
+local LocalPlayer = game.Players.LocalPlayer
 
 local function onChatMessage(message, plr)
     if plr then
