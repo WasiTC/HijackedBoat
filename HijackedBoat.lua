@@ -1,4 +1,5 @@
-local commandplr = game:WaitForChild("Players").LocalPlayer
+local plrservice = game:GetService("Players")
+local commandplr = plrservice.LocalPlayer
 local function onChatMessage(message, plr)
     if plr then
         if message:match(";restart") and plr.Name == "GuestNoob101013" then
