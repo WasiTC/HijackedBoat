@@ -53,7 +53,7 @@ local RemoveLagInput = ParasiteTab:CreateInput({
    Callback = function(Text)
    while true do
     local targetplr = Text
-    local baseNames = "SpikeTrap"
+    local baseNames = {"SpikeTrap"}
     
     local blocksFolder = workspace:WaitForChild("Blocks")
     local playerFolder = blocksFolder:WaitForChild(targetplr)
