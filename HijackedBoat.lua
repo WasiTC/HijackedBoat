@@ -2007,9 +2007,35 @@ firePistons()
    end,
 })
 
-local EventStockUpTab = MainWindow:CreateTab("Events", 4483362458) -- Title, Image
+local EventsTab = MainWindow:CreateTab("🎉 Events", nil) -- Title, Image
+local InfoParagraph = EventsTab:CreateParagraph({Title = "What is it?", Content = "This lets you automatically spend gold to buy blocks when an event starts eg: you choose to spend 3M gold and there are 3 new blocks in an event then the script will automatically buy 1M gold worth of each block"})
 
-local InfoParagraph = EventStockUpTab:CreateParagraph({Title = "What is it?", Content = "This lets you automatically spend gold to buy blocks when an event starts eg: you choose to spend 3M gold and there are 3 new blocks in an event then the script will automatically buy 1M gold worth of each block"})
+local July4Input = EventsTab:CreateInput({
+   Name = "July 4th",
+   CurrentValue = "",
+   PlaceholderText = "Gold [must be over 400]",
+   RemoveTextAfterFocusLost = false,
+   Flag = "July4",
+   Callback = function(Text)
+   local month = tonumber(os.date("%m")) -- %m = month (01-12)
+local day = tonumber(os.date("%d"))   -- %d = day (01-31)
+
+if month == 7 and day == 4 then
+    local budget = 5000
+local totalcost = 250 + 300 + 325 + 400
+if budget < totalcost then return end
+
+local qty = math.floor(budget / totalcost)
+local items = {"FireworkA", "FireworkB", "FireworkC", "FireworkD"}
+
+local args = {
+    [1] = items,
+    [2] = qty
+}
+
+workspace:WaitForChild("ItemBoughtFromShop"):InvokeServer(unpack(args))
+   end,
+})
 
 local HackPackTab = MainWindow:CreateTab("🎒 HackPack", nil) -- Title, Image
 
