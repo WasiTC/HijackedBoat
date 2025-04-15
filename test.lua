@@ -2,7 +2,7 @@ local budget = 5000
 local totalcost = 1275
 if budget < totalcost then return end
 
-local qty = mathxfloor(budget / totalcost)
+local qty = math.floor(budget / totalcost)
 
 local args = {
     [1] = Wood,
