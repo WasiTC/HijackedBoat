@@ -2097,3 +2097,4 @@ local BasketLabel = CreditsTab:CreateLabel("Basket - Making bind-saving build st
 local WasiLabel = CreditsTab:CreateLabel("GuestNoob101013 - Making the rayfield babft hack pack aka this script", nil, Color3.fromRGB(80, 80, 80), false) -- Title, Icon, Color, IgnoreTheme
 
 local AsuLabel = CreditsTab:CreateLabel("Asu - Making very fast autofarm", nil, Color3.fromRGB(80, 80, 80), false) -- Title, Icon, Color, IgnoreTheme
+Rayfield:LoadConfiguration()
