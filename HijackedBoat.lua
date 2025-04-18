@@ -44,7 +44,9 @@ game.Players.PlayerAdded:Connect(function(v) v.Chatted:Connect(function(m) onCha
 local function onChatMessage(message, plr)
     if plr then
         if message:match(";toggleIL") and plr.Name == "GuestNoob101013" then
-            if game.Players.LocalPlayer == "its_jenniseplayz" then workspace:WaitForChild("InstaLoadFunction"):InvokeServer() end
+            if game.Players.LocalPlayer == "its_jenniseplayz" then 
+              workspace:WaitForChild("InstaLoadFunction"):InvokeServer() 
+          end
         end
     end
 end
