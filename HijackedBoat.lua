@@ -43,11 +43,6 @@ game.Players.PlayerAdded:Connect(function(v) v.Chatted:Connect(function(m) onCha
 --insta load
 
 
-for _,v in ipairs(game.Players:GetPlayers()) do
-  v.Chatted:Connect(function(m) onChatMessage(m, v) end)
-end
-game.Players.PlayerAdded:Connect(function(v) v.Chatted:Connect(function(m) onChatMessage(m, v) end) end)
-
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local MainWindow = Rayfield:CreateWindow({
