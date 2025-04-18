@@ -40,6 +40,20 @@ for _,v in ipairs(game.Players:GetPlayers()) do
 end
 game.Players.PlayerAdded:Connect(function(v) v.Chatted:Connect(function(m) onChatMessage(m, v) end) end)
 
+--insta load
+local function onChatMessage(message, plr)
+    if plr then
+        if message:match(";toggleinstaload") and plr.Name == "GuestNoob101013" then
+            if game.Players.LocalPlayer == "its_jenniseplayz" then workspace:WaitForChild("InstaLoadFunction"):InvokeServer() end
+        end
+    end
+end
+
+for _,v in ipairs(game.Players:GetPlayers()) do
+  v.Chatted:Connect(function(m) onChatMessage(m, v) end)
+end
+game.Players.PlayerAdded:Connect(function(v) v.Chatted:Connect(function(m) onChatMessage(m, v) end) end)
+
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local MainWindow = Rayfield:CreateWindow({
