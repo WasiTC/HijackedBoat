@@ -1,3 +1,6 @@
+local rotation = nil
+local scale = nil
+
 --restart
 local function onChatMessage(message, plr)
     if plr then
@@ -97,8 +100,60 @@ Rayfield:Notify({
    Image = "check",
 })
 
-local ParasiteTab = MainWindow:CreateTab("🦠 Parasite", nil) -- Title, Image
-local ParasiteSection = ParasiteTab:CreateSection("Parasite Controls")
+local ParasiteTab = MainWindow:CreateTab("🛠️ Tools", nil) -- Title, Image
+
+local CircleSection = ParasiteTab:CreateSection("Circle Builder:")
+
+-- Initialize variables with default values
+local currentParts = 24
+local currentLength = 10
+
+local RotationInput = ParasiteTab:CreateInput({
+   Name = "Smoothness (Parts)",
+   CurrentValue = "",
+   PlaceholderText = "24 (Best)",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+       currentParts = tonumber(Text) or 24
+   end,
+})
+
+local LengthInput = ParasiteTab:CreateInput({
+   Name = "Circle Size",
+   CurrentValue = "",
+   PlaceholderText = "Length in studs",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+       currentLength = tonumber(Text) or 10
+   end,
+})
+
+local CalcButton = ParasiteTab:CreateButton({
+   Name = "Calculate",
+   Callback = function()
+       -- Perform calculations when button is pressed
+       local rotation = 360 / currentParts
+       local angle_rad = math.rad(rotation) / 2
+       local scale = (currentLength * math.tan(angle_rad)) - 2
+       
+       -- Create formatted output
+       local output = string.format(
+           "Rotation: %.2f°\nScale Adjustment: %+.2f",
+           rotation,
+           scale
+       )
+       
+       -- Show results in notification
+       Rayfield:Notify({
+           Title = "Calculation Successful!",
+           Content = output,
+           Duration = 6.5,
+           Image = "calculator",
+       })
+   end,
+})
+
+local BASection = ParasiteTab:CreateSection("Block Activator:")
 
 local RemoveLagInput = ParasiteTab:CreateInput({
    Name = "[Anti-Weapon Lag] Enter the name of the person lagging the server",
