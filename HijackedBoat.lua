@@ -105,8 +105,8 @@ local ParasiteTab = MainWindow:CreateTab("🛠️ Tools", nil) -- Title, Image
 local CircleSection = ParasiteTab:CreateSection("Circle Builder:")
 
 -- Initialize variables with default values
-local currentParts = 24
-local currentLength = 10
+local currentParts = nil
+local currentLength = nil
 
 local RotationInput = ParasiteTab:CreateInput({
    Name = "Smoothness (Parts)",
@@ -114,7 +114,7 @@ local RotationInput = ParasiteTab:CreateInput({
    PlaceholderText = "24 (Best)",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
-       currentParts = tonumber(Text) or 24
+       currentParts = tonumber(Text) or nil
    end,
 })
 
@@ -124,7 +124,7 @@ local LengthInput = ParasiteTab:CreateInput({
    PlaceholderText = "Length in studs",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
-       currentLength = tonumber(Text) or 10
+       currentLength = tonumber(Text) or nil
    end,
 })
 
