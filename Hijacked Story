@@ -1,4 +1,3 @@
--- Hijacked Story Hub - CodeWare UI - FULLY FIXED & CLEAN
 -- Dropdown items + Spawn button + All tabs working perfectly
 
 local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/PlayerZN-Gaming/PlayerZN----Roblox-UI-Libraries/refs/heads/main/CodewareLib"))()
