@@ -1,8 +1,7 @@
--- Hijacked Story Hub - CodeWare UI - FULLY FIXED & CLEAN
--- Dropdown items + Spawn button + All tabs working perfectly
+-- Hijacked Story Hub - CodeWare UI - IMPROVED VERSION
 
 local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/PlayerZN-Gaming/PlayerZN----Roblox-UI-Libraries/refs/heads/main/CodewareLib"))()
-local win = ui:CreateWindow("[🏴‍☠️] Hijacked Story")
+local win = ui:CreateWindow("[⭐] Hijacked Story Hub")
 
 local items    = win:AddTab("Items")
 local roles    = win:AddTab("Roles")
@@ -10,56 +9,51 @@ local roles    = win:AddTab("Roles")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local workspace = game:GetService("Workspace")
 
 -- ========= ITEMS TAB =========
 items:AddLabel("Food Items")
 local foodList = {"Chips", "BloxyCola", "Apple", "Pizza3", "Cookie", "Lollipop"}
 local selectedFood = foodList[1]
-items:AddDropdown("Select Food", foodList, function(v) selectedFood = v end)
+items:AddDropdown("Select Food", foodList, function(v) 
+    selectedFood = v
+    selectedCategory = "food"
+    selectedItem = v
+end)
 
 items:AddLabel("Weapons")
 local weaponList = {"Bat", "LinkedSword", "TeddyBloxpin", "Hammer"}
 local selectedWeapon = weaponList[1]
-items:AddDropdown("Select Weapon", weaponList, function(v) selectedWeapon = v end)
+items:AddDropdown("Select Weapon", weaponList, function(v) 
+    selectedWeapon = v
+    selectedCategory = "weapon"
+    selectedItem = v
+end)
 
 items:AddLabel("Other Items")
 local otherList = {"MedKit", "Cure", "Key", "Plank"}
 local selectedOther = otherList[1]
-items:AddDropdown("Select Other", otherList, function(v) selectedOther = v end)
+items:AddDropdown("Select Other", otherList, function(v) 
+    selectedOther = v
+    selectedCategory = "other"
+    selectedItem = v
+end)
+
+-- Track the last selected item and category
+local selectedItem = selectedFood
+local selectedCategory = "food"
 
 items:AddLabel("→ Spawn Selected Item")
 items:AddButton("Spawn Item", "Gives the selected item", function()
-    -- Track which category was last selected
-    local lastCategory = nil
-    local itemToSpawn = nil
-    
-    -- Check which dropdown was most recently used by comparing with current selections
-    -- This is a simple implementation - you could track this with variables in dropdown callbacks
-    if table.find(foodList, selectedFood) then
-        lastCategory = "food"
-        itemToSpawn = selectedFood
-    end
-    if table.find(weaponList, selectedWeapon) then
-        lastCategory = "weapon"
-        itemToSpawn = selectedWeapon
-    end
-    if table.find(otherList, selectedOther) then
-        lastCategory = "other"
-        itemToSpawn = selectedOther
-    end
-    
-    if itemToSpawn then
-        -- Special case for Hammer
-        if itemToSpawn == "Hammer" then
+    if selectedItem then
+        if selectedItem == "Hammer" then
             ReplicatedStorage.RemoteEvents.BasementWeapon:FireServer(true, "Hammer")
         else
-            ReplicatedStorage.RemoteEvents.GiveTool:FireServer(itemToSpawn)
+            ReplicatedStorage.RemoteEvents.GiveTool:FireServer(selectedItem)
         end
         
         game.StarterGui:SetCore("SendNotification",{
             Title = "Item Spawned!";
-            Text = itemToSpawn .. " (" .. lastCategory .. ")";
+            Text = selectedItem .. " (" .. selectedCategory .. ")";
             Duration = 2;
         })
     end
